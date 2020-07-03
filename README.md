@@ -4,6 +4,8 @@ I'm not ashamed to admit I still like to play [Pokémon](https://www.pokemon.com
 
 This repository is a helping hand in organizing my living Pokédex. For now the only supported Pokédex is for the [Galar region](https://bulbapedia.bulbagarden.net/wiki/Galar). I hope to expand this to all regions later.
 
+The templates are available via https://timoschinkel.github.io/living-pokedex-templates/
+
 The data is based on the [veekun/pokedex](https://github.com/veekun/pokedex), except for the Galar data as this is not yet available in Veekun.
 
 ## Building the templates
