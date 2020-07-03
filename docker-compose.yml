@@ -1,0 +1,7 @@
+version: '2.0'
+services:
+  go-cli: 
+    container_name: go-cli
+    image: golang:stretch
+    volumes: 
+      - .:/go
