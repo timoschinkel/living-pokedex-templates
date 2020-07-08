@@ -17,7 +17,6 @@ The process of building the templates consists of two steps; generating JSON and
 First build the veekun/pokedex database following the [instructions](https://github.com/veekun/pokedex/wiki/Getting-Data). The database should be built to Sqlite. Make sure the resulting Sqlite data is copied to the working directory of this repository. The Sqlite database is dumped to `pokedex/data/pokedex.sqlite` by default.
 
 Next steps are preparation, compilation and generation:
-- `docker-compose run go-cli go install github.com/mattn/go-sqlite3` - This command will install the third party Sqlite driver. This command only needs to run once after the first creation of the docker container.
 - `docker-compose run go-cli go build generate_json.go` - This command will compile the generation script.
 - `docker-compose run go-cli ./generate_json` - This command will run the compiled binary and will do the actual work.
 
