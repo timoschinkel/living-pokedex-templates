@@ -1,5 +1,4 @@
 pokedex.sqlite
-generate_json
-generate_html
+generate
 pkg
 src
