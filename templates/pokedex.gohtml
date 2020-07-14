@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Living Pokedex template - {{ .Name }}</title>
+  <meta name="description" content="Living Pokedex template for {{ .Name }}">
+  <meta name="author" content="Timo Schinkel">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="assets/main.css">
+</head>
+
+<body>
+    <h1>{{ .Name }}</h1>
+    <div class="pokedex {{ .Identifier }}">
+        {{range .Boxes}}        
+        <div class="box">
+            <div class="title">{{ .Title }}</div>
+            <div class="contents">
+                {{range .Pokemon}}
+                <div class="monster">
+                    <a href="https://www.serebii.net/pokedex-swsh/{{ .Identifier }}/" title="{{ .Name }}">
+                        <img src="https://www.serebii.net/swordshield/pokemon/small/{{printf "%03d" .NationalDexNumber}}.png" loading="lazy"/>
+                        <span class="name">
+                            <span class="number">{{ .DexNumber }}</span>
+                            {{ .Name }}
+                        </span>
+                    </a>
+                </div>
+                {{end}}
+            </div>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
