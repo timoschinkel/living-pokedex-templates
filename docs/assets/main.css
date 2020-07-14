@@ -63,3 +63,9 @@ h1 {
 
 .monster .name { display: block; }
 .monster img { max-width: 100%; }
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+    .monster .name { display: none; }
+}
