@@ -1,47 +1,3 @@
-body {
-    background: linear-gradient(90deg, #fcfffc 0%, #f0ffee 100%);
-    background-attachment: fixed;
-
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    margin: 0;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    background: linear-gradient(90deg, #fcfffc 0%, #f0ffee 100%);
-}
-
-.box {
-    border-radius: 1rem;
-    font-family: sans-serif;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.box .title {
-    background: #fff;
-    border-radius: 2rem;
-    padding: 1rem;
-    margin: .5rem 0;
-    text-align: center;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.box .title::before {
-    content: '◀';
-    margin-right: 2rem;
-}
-
-.box .title::after {
-    content: '▶';
-    margin-left: 2rem;
-}
-
 .box .contents {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -64,8 +20,57 @@ h1 {
 .monster .name { display: block; }
 .monster img { max-width: 100%; }
 
+header {
+    padding: 3rem 1.5rem;
+}
+
 @media only screen 
 and (min-device-width : 375px) 
 and (max-device-width : 667px) {
+    /* mobile devices */
+    header { padding: 1rem 1.5rem 0; }
+    .pokedex .box { padding: 0.75rem; }
     .monster .name { display: none; }
+}
+
+/* source: https://gist.github.com/cmckee-dev/7a6291d06220a2180c2efbeb948649f7 */
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+}
+    
+.github-corner svg {
+    fill: gray;
+    color: #fff;
+}
+    
+.github-corner:hover svg {
+    fill: #337ab7;
+}
+    
+@keyframes octocat-wave {
+    0%, 100% {
+        transform: rotate(0deg)
+    }
+    20%, 60% {
+        transform: rotate(-25deg)
+    }
+    40%, 80% {
+        transform: rotate(10deg)
+    }
+}
+    
+@media (max-width: 500px) {
+    .github-corner svg {
+        height: 40px;
+        width: 40px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: none
+    }
+    
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
 }
