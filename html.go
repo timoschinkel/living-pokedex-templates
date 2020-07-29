@@ -26,6 +26,36 @@ func (pokedex Pokedex) Boxes () []Box {
 	return boxes
 }
 
+func (pokemon Pokemon) Url (pokedex Pokedex) string {
+	mapping := map[string]string{
+		"red-blue-yellow": "",
+		"gold-silver-crystal": "gs",
+		"ruby-sapphire-emerald": "rs",
+		"firered-leafgreen": "rs",
+		"diamond-pearl-platinum": "dp",
+		"heartgold-soulsilver": "dp",
+		"black-white-black-2-white-2": "bw",
+		"x-y": "xy",
+		"omega-ruby-alpha-sapphire": "xy",
+		"sun-moon": "sm",
+		"ultra-sun-ultra-moon": "sm",
+		"sword-shield-galar": "swsh",
+		"sword-shield-isle-of-armor": "swsh",
+	}
+	
+	separator := "-"
+	if mapping[pokedex.Identifier] == "" {
+		separator = ""
+	}
+
+	if mapping[pokedex.Identifier] == "swsh" {
+		// Serebii has changed their url structure starting with generation VIII
+		return fmt.Sprintf("https://www.serebii.net/pokedex%s%s/%s/", separator, mapping[pokedex.Identifier], pokemon.Identifier)
+	} else {
+		return fmt.Sprintf("https://www.serebii.net/pokedex%s%s/%03d.shtml", separator, mapping[pokedex.Identifier], pokemon.NationalDexNumber)		
+	}
+}
+
 func generate_html() {
 	generate_pokedex_html()
 	generate_index_html()
