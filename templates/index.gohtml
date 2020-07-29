@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Living Pokedex template - {{ .Name }}</title>
-  <meta name="description" content="Living Pokedex template for {{ .Name }}">
+  <title>Living Pokedex templates</title>
+  <meta name="description" content="Living Pokedex templates">
   <meta name="author" content="Timo Schinkel">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,27 +15,22 @@
 
 <body>
     <header>
-        <h1>{{ .Name }}</h1>
-        <a href="index.html" rel="back" class="back">Back to overview</a>
+        <h1>Living Pokedex templates</h1>
     </header>
-    <section class="pokedex {{ .Identifier }} section">
-        {{range .Boxes}}        
-        <section class="box">
-            <h2>{{ .Title }}</h2>
-            <div class="contents">
-                {{range .Pokemon}}
-                <div class="monster">
-                    <a href="https://www.serebii.net/pokedex-swsh/{{ .Identifier }}/" title="{{ .Name }}">
-                        <img src="https://www.serebii.net/swordshield/pokemon/small/{{printf "%03d" .NationalDexNumber}}.png" loading="lazy"/>
-                        <span class="name">
-                            <span class="pokedex-number">{{ .DexNumber }}</span>
-                            {{ .Name }}
-                        </span>
+
+    <section class="section">
+        {{range $generation, $pokedexes := .}}
+            <h2>Generation {{$generation}}</h2>
+            <ol class="pokedexes">
+                {{range $pokedexes}}
+                <li>
+                    <a href="{{.Identifier}}.html">
+                        <span class="pokedex-title">{{.Name}}</span>
+                        <ul class="games">{{range .Games}}<li>{{.}}</li>{{end}}</ul>
                     </a>
-                </div>
+                </li>
                 {{end}}
-            </div>
-        </section>
+            </ol>
         {{end}}
     </section>
 
