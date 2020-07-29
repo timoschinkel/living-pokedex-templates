@@ -25,7 +25,7 @@
             <div class="contents">
                 {{range .Pokemon}}
                 <div class="monster">
-                    <a href="https://www.serebii.net/pokedex-swsh/{{ .Identifier }}/" title="View {{ .Name }} on Serebii">
+                    <a href="{{ .Url $ }}" title="View {{ .Name }} on Serebii" rel="noopener">
                         <img src="https://www.serebii.net/swordshield/pokemon/small/{{printf "%03d" .NationalDexNumber}}.png" alt="{{ .Name }}" loading="lazy"/>
                         <span class="name">
                             <span class="pokedex-number">{{ .DexNumber }}</span>
