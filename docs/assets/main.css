@@ -1,3 +1,41 @@
+header {
+    padding: 3rem 1.5rem;
+}
+
+/* INDEX VIEW */
+.pokedexes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-auto-rows: 1fr;
+    margin: 1rem 0;
+}
+
+.pokedexes > li {
+    list-style: none;
+
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
+    color: #4a4a4a;
+    padding: 1.25rem;
+}
+
+.games > li { 
+    display: inline;
+    font-size: smaller;
+}
+
+.games li:first-child::before {
+    content: 'Games: ';
+}
+
+.games li:not(:first-child)::before {
+    content: ', ';
+}
+
+/* POKEDEX VIEW */
+
 .box .contents {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -19,10 +57,6 @@
 
 .monster .name { display: block; }
 .monster img { max-width: 100%; }
-
-header {
-    padding: 3rem 1.5rem;
-}
 
 @media only screen 
 and (min-device-width : 375px) 

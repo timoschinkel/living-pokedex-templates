@@ -27,6 +27,11 @@ func (pokedex Pokedex) Boxes () []Box {
 }
 
 func generate_html() {
+	generate_pokedex_html()
+	generate_index_html()
+}
+
+func generate_pokedex_html() {
 	// Read template
 	tpl, err := template.ParseFiles("./templates/pokedex.gohtml")
 	if err != nil {
@@ -39,7 +44,7 @@ func generate_html() {
 		reader, err := ioutil.ReadFile(file)
 		if err != nil {
 			log.Fatal(err)
-		}
+		}		
 
 		pokedex := Pokedex{}
 		err = json.Unmarshal([]byte(reader), &pokedex)
@@ -53,4 +58,30 @@ func generate_html() {
 
 		fmt.Printf("Written \"%s\" to %s\n", pokedex.Name, filename)
 	}
+}
+
+func generate_index_html() {
+	// Read template
+	tpl, err := template.ParseFiles("./templates/index.gohtml")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	generations := make(map[string][]Pokedex)
+	for _, pokedex := range pokedexes {
+		if _, exists := generations[pokedex.Generation]; ! exists {
+			generations[pokedex.Generation] = []Pokedex{}
+		}
+		
+		generations[pokedex.Generation] = append(generations[pokedex.Generation], pokedex)
+	}
+
+	filename := "docs/index.html"
+	writer, err := os.Create(filename)
+	err = tpl.Execute(writer, generations)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Written \"index\" to %s\n", filename)
 }
