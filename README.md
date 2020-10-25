@@ -33,4 +33,12 @@ docker-compose run go-cli ./generate json
 After completion a batch of JSON files is written to `/data`.
 
 ### Generating HTML
-[WIP]
+Given the availability of the json files html can be generated.
+
+To (re)generate the html files run:
+
+```bash
+docker-compose run go-cli ./generate html
+```
+
+After completion html files are written to `/docs`.

@@ -37,4 +37,5 @@ var pokedexes = []Pokedex{
 	Pokedex{"VII", "ultra-sun-ultra-moon", "National updated Alola dex", []string{ "Ultra Sun", "Ultra Moon" }, "Alola", 807, []Pokemon{} },
 	Pokedex{"VIII", "sword-shield-galar", "Galar dex", []string{ "Sword", "Shield"}, "Galar", 0, []Pokemon{} },
 	Pokedex{"VIII", "sword-shield-isle-of-armor", "Isle of Armor dex", []string{ "Sword", "Shield"}, "Galar", 0, []Pokemon{} },
+	Pokedex{"VIII", "sword-shield-crown-tundra", "Crown Tundra dex", []string{ "Sword", "Shield"}, "Galar", 0, []Pokemon{} },
 }
