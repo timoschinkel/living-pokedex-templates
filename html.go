@@ -41,6 +41,7 @@ func (pokemon Pokemon) Url (pokedex Pokedex) string {
 		"ultra-sun-ultra-moon": "sm",
 		"sword-shield-galar": "swsh",
 		"sword-shield-isle-of-armor": "swsh",
+		"sword-shield-crown-tundra": "swsh",
 	}
 	
 	separator := "-"
